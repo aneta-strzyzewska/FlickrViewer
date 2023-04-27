@@ -1,5 +1,9 @@
+import Search from "./viewer/Search";
+
 const App = () => {
-  return <></>;
+  return <>
+    <Search />
+  </>;
 }
 
 export default App;

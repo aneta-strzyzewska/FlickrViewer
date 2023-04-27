@@ -1,10 +1,16 @@
 import { useState } from "react";
 
+import Results from "./Results";
+
 const Search = () => {
     const [ query, setQuery ] = useState<string | undefined>();
+    const [ search, setSearch ] = useState<boolean>(false)
 
     return <>
-        <form>
+        <form onSubmit={(e) => {
+            e.preventDefault();  
+            setSearch(true);
+        }}>
             <label>Search Flickr: <br />
                 <input 
                     type="text"
@@ -14,6 +20,10 @@ const Search = () => {
                 />
             </label>
         </form>
+        { search &&
+            <Results query={query} />
+        }
+        
     </>
 }
 

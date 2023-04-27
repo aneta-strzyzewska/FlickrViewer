@@ -14,7 +14,6 @@ const Search = () => {
             <label>Search Flickr: <br />
                 <input 
                     type="text"
-                    name="query"
                     value={query} 
                     onChange={(e) => setQuery(e.target.value)} 
                 />

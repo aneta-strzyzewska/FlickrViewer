@@ -19,6 +19,7 @@
     width: fit-content;
     background-color: #fefefe;
     border: 1px solid black;
+    box-shadow: 5px 5px 5px 5px;
 }
 
 .blocking-layer {

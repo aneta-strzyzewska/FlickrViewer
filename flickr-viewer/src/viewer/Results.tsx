@@ -1,5 +1,6 @@
 import PhotoView from "./PhotoView";
 import useFlickr from "./useFlickr"
+import './style.css';
 
 type ResultParams = {
     query?: string
@@ -8,14 +9,11 @@ type ResultParams = {
 const Results = ({ query }: ResultParams) => {
     const { result } = useFlickr(query);
 
-    return (<>{
+    return (<div className="photo-container">{
         result?.photo.map((photo, index) => 
-            <div className="photo-view">
-                <PhotoView 
-                    key={index} 
-                    photo={photo} />
-            </div>)
-    }</>)
+            <PhotoView key={index} photo={photo} />
+        )
+    }</div>)
 }
 
 export default Results;

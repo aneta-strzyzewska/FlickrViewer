@@ -1,4 +1,5 @@
 import type { Photo } from "./types"
+import './style.css'; 
 
 type PhotoParams = {
     photo: Photo
@@ -9,7 +10,7 @@ const getFlickrImageUrl = (photo: Photo) => (
 ) 
 
 const PhotoView = ({photo}: PhotoParams) => {
-    return <img src={getFlickrImageUrl(photo)} />
+    return <img className="photo-view" src={getFlickrImageUrl(photo)} />
 }
 
 export default PhotoView;

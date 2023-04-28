@@ -32,7 +32,7 @@ const getSearchParams = (query?: string): URLSearchParams => {
         nojsoncallback: 'true',
         text: query ?? '',
         page: '1',
-        per_page: '20'
+        per_page: '10'
     })
 } 
 

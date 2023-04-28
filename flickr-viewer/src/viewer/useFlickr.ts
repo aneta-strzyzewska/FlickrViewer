@@ -25,6 +25,7 @@ const useFlickr = (query?: string) => {
 const getSearchParams = (query?: string): URLSearchParams => {
     return new URLSearchParams({
         method: 'flickr.photos.search',
+        //unsafe, but fine for a low-stakes project and a disposable key, 
         api_key: 'c68c1cf1fa4cf0c7669dbe65fc9446fa',
         format: 'json',
         nojsoncallback: 'true',

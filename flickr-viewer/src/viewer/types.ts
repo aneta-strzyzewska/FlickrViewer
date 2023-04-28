@@ -10,6 +10,15 @@ export type Photo = {
     isfamily: boolean
 }
 
+export type PhotoInfo = {
+    urls: {
+        url: {
+            type: string,
+            _content: string
+        }[]
+    }
+}
+
 export type PageContext = {
     page: number,
     pages: number,

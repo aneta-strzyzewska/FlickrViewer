@@ -6,12 +6,14 @@ type ResultParams = {
 }
 
 const Results = ({ query }: ResultParams) => {
-    const { result, loading, error } = useFlickr(query);
+    const { result } = useFlickr(query);
 
     return (<>{
-        result?.photo.map(photo => 
-            <div>
-                <PhotoView photo={photo} />
+        result?.photo.map((photo, index) => 
+            <div className="photo-view">
+                <PhotoView 
+                    key={index} 
+                    photo={photo} />
             </div>)
     }</>)
 }

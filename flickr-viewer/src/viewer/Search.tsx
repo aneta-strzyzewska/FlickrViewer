@@ -2,10 +2,11 @@ import { useState } from "react";
 
 import Results from "./Results";
 import '../styles.css';
+import type { SearchQuery } from "./types";
 
 const Search = () => {
-    const [ query, setQuery ] = useState<string | undefined>();
-    const [ search, setSearch ] = useState<boolean>(false)
+    const [ text, setText ] = useState<string | undefined>();
+    const [ searchQuery, setSearchQuery ] = useState<SearchQuery | undefined>()
 
     return <>
         <div className="app-header">
@@ -13,18 +14,23 @@ const Search = () => {
         </div>
         <form onSubmit={(e) => {
             e.preventDefault();  
-            setSearch(true);
+            setSearchQuery({
+                text: text,
+                page: 1,
+                perPage: 30
+            });
         }}>
             <input 
                 className="search-field"
                 placeholder="Search Flickr"
+                name="text"
                 type="text"
-                value={query} 
-                onChange={(e) => setQuery(e.target.value)} 
+                value={text} 
+                onChange={(e) => setText(e.target.value)} 
             />
         </form>
-        { search &&
-            <Results query={query} />
+        { searchQuery &&
+            <Results query={searchQuery} />
         }
         
     </>

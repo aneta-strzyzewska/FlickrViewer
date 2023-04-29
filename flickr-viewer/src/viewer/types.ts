@@ -22,3 +22,9 @@ export type ResponseContext = {
     photos: PageContext,
     stat: string
 }
+
+export type SearchQuery = {
+    text?: string,
+    page?: number, 
+    perPage?: number
+}

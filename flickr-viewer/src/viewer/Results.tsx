@@ -3,15 +3,15 @@ import { useState } from "react";
 import useFlickr from "./useFlickr"
 import '../styles.css';
 import { getFlickrImageUrl } from "./viewerFunctions";
-import type { Photo } from "./types";
+import type { Photo, SearchQuery } from "./types";
 import PhotoDetail from "./PhotoDetail";
 
 type ResultParams = {
-    query?: string
+    query: SearchQuery
 }
 
 const Results = ({ query }: ResultParams) => {
-    const { result } = useFlickr(query, 1, 30);
+    const { result } = useFlickr(query);
     const [ details, setDetails ] = useState<Photo>()
 
     return (

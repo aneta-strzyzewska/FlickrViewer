@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import type { PageContext, ResponseContext } from "./types";
+import type { PageContext, ResponseContext, SearchQuery } from "./types";
 
-const useFlickr = (query?: string, page?: number, perPage?: number) => {
+const useFlickr = (query: SearchQuery) => {
     const [result, setResult] = useState<PageContext>();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<any>();
@@ -11,7 +11,7 @@ const useFlickr = (query?: string, page?: number, perPage?: number) => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await fetch(`https://www.flickr.com/services/rest/?${getSearchParams(query, page, perPage)}`)
+                const response = await fetch(`https://www.flickr.com/services/rest/?${getSearchParams(query)}`)
                 response.json().then((data: ResponseContext) => setResult(data.photos));
             } catch (error) {
                 setError(error)
@@ -24,15 +24,15 @@ const useFlickr = (query?: string, page?: number, perPage?: number) => {
     return { result, loading, error }
 }
 
-const getSearchParams = (query?: string, page?: number, perPage?: number): URLSearchParams => {
+const getSearchParams = (query: SearchQuery): URLSearchParams => {
     return new URLSearchParams({
         method: 'flickr.photos.search',
         api_key: process.env.REACT_APP_FLICKR_API_KEY ?? '',
         format: 'json',
         nojsoncallback: 'true',
-        text: query ?? '',
-        page: page?.toString() ?? '1',
-        per_page: perPage?.toString() ?? '10',
+        text: query.text ?? '',
+        page: query.page?.toString() ?? '1',
+        per_page: query.perPage?.toString() ?? '10',
     })
 } 
 

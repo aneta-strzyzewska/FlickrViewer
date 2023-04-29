@@ -10,6 +10,7 @@ type PhotoDetailParams = {
 const PhotoDetail = ({ photo, onClose }: PhotoDetailParams) => (
     <div className='blocking-layer'>
         <div className="photo-detail-modal">
+            <label>{photo.title}</label>
             <img 
                 className='photo-detail' 
                 alt={photo.title} 

@@ -16,8 +16,8 @@ const Search = () => {
             e.preventDefault();  
             setSearchQuery({
                 text: text,
-                page: 1,
-                perPage: 30
+                page: "1",
+                per_page: "30"
             });
         }}>
             <input 

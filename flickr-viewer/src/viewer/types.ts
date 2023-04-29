@@ -25,6 +25,6 @@ export type ResponseContext = {
 
 export type SearchQuery = {
     text?: string,
-    page?: number, 
-    perPage?: number
+    page?: string, 
+    per_page?: string
 }

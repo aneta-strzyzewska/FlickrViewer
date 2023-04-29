@@ -30,9 +30,7 @@ const getSearchParams = (query: SearchQuery): URLSearchParams => {
         api_key: process.env.REACT_APP_FLICKR_API_KEY ?? '',
         format: 'json',
         nojsoncallback: 'true',
-        text: query.text ?? '',
-        page: query.page?.toString() ?? '1',
-        per_page: query.perPage?.toString() ?? '10',
+        ...query
     })
 } 
 

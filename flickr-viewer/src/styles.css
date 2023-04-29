@@ -3,7 +3,7 @@
 }
 
 .photo-view {
-    width: 20%;
+    width: 10%;
     vertical-align: top;
 }
 
@@ -35,4 +35,14 @@
 
 .photo-detail-close {
     float: right;
+}
+
+.search-field {
+    display: block;
+    margin: 15px auto 15px auto;
+    width: 20%;
+}
+
+.app-header {
+    text-align: center;
 }

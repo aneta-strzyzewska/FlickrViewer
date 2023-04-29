@@ -11,7 +11,7 @@ type ResultParams = {
 }
 
 const Results = ({ query }: ResultParams) => {
-    const { result } = useFlickr(query);
+    const { result } = useFlickr(query, 1, 30);
     const [ details, setDetails ] = useState<Photo>()
 
     return (
